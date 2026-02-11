@@ -8,14 +8,18 @@ function clearDisplay() {
     display.value = '';
 }
 
-function deleteLast() {.
-    display.value = display.value.toString().slice(0, -1);
+function deleteLast() {
+    if (display.value) {
+        display.value = display.value.toString().slice(0, -1);
+    }
 }
 
 function calculateResult() {
-    try {
-        display.value = eval(display.value);
-    } catch (error) {
-        display.value = 'Error';
+    if (display.value) {
+        try {
+            display.value = eval(display.value);
+        } catch (error) {
+            display.value = 'Error';
+        }
     }
 }
